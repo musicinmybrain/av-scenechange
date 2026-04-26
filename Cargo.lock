@@ -169,7 +169,6 @@ dependencies = [
  "pastey",
  "serde",
  "serde_json",
- "thiserror",
  "tracing",
  "tracing-perfetto",
  "tracing-subscriber",

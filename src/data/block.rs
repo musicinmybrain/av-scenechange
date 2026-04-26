@@ -1,6 +1,7 @@
-use std::{fmt, fmt::Display};
-
-use thiserror::Error;
+use std::{
+    error::Error,
+    fmt::{self, Display},
+};
 
 use crate::data::{
     plane::PlaneOffset,
@@ -255,8 +256,11 @@ impl BlockSize {
     }
 }
 
-#[derive(Debug, Copy, Clone, Error, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq)]
 pub struct InvalidBlockSize;
+
+impl Error for InvalidBlockSize {
+}
 
 impl Display for InvalidBlockSize {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
